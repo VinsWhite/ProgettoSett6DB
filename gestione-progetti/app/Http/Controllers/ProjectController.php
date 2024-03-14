@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\project;
 use App\Http\Requests\StoreprojectRequest;
 use App\Http\Requests\UpdateprojectRequest;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\DB;
 
 class ProjectController extends Controller
@@ -24,7 +25,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('createProject', ['users' => User::get(), 'currentUser' => auth()->user()]);
     }
 
     /**
@@ -32,7 +33,18 @@ class ProjectController extends Controller
      */
     public function store(StoreprojectRequest $request)
     {
-        //
+        $projectData = [
+            'title' => $request->title,
+            'description' => $request->description,
+            'scope' => $request->scope,
+            'deadline' => $request->deadline,
+            'users_id' => auth()->id(), 
+        ];
+        
+        Project::create($projectData);        
+        
+        return redirect()->action([ProjectController::class, 'index']);
+        
     }
 
     /**
@@ -40,7 +52,11 @@ class ProjectController extends Controller
      */
     public function show(project $project)
     {
-        //
+        $user = $project->user;
+        $activity = $project->activity;
+        /* dd($activity); */
+    
+        return view('detailProject', ['project' => $project, 'user' => $user, 'activity' => $activity]);
     }
 
     /**

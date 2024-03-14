@@ -4,7 +4,11 @@
 @section('content')
 
 @section('addBook')
-<a href="project/create" class="btn btn-primary mt-4">Add project</a>
+<div class="d-flex flex-col">
+    <a href="/dashboard"><i class="bi bi-arrow-left"></i></a>
+    <a href="project/create" class="btn btn-success mt-4">Add project</a>
+</div>
+
 
 
 @if($projects)
@@ -28,8 +32,8 @@
       <td>{{ $proj->scope }}</td>
       <td>{{ $proj->deadline }}</td>
       <td>{{ $proj->name }}</td>
-      <td><a href="project/update"><i class="text-info bi bi-info-square"></i></a></td>
-      <td><a href="project/{{$proj->id}}/destroy"><i class="text-danger bi bi-trash"></i></a></td>
+      <td><a href="project/{{$proj->id}}"><i class="text-success bi bi-info-square"></i></a></td>
+      <td><a href="project/{{$proj->id}}/destroy"><i class="text-danger-emphasis bi bi-trash"></i></a></td>
     </tr>
     @endforeach
   </tbody>

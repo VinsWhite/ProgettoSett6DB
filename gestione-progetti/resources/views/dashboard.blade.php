@@ -12,6 +12,7 @@
                     {{ __("You're logged in!") }}
                 </div>
             </div>
+            <a href="/manage/project" class="btn btn-blue mt-7">Vai al progetto</a>
         </div>
     </div>
 </x-app-layout>
