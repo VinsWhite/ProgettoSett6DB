@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\activity;
 use App\Http\Requests\StoreactivityRequest;
 use App\Http\Requests\UpdateactivityRequest;
+use App\Models\project;
+use App\Models\User;
 
 class ActivityController extends Controller
 {
@@ -19,9 +21,9 @@ class ActivityController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function createActivity(project $project)
     {
-        //
+        return view('createActivity', ['users' => User::get(), 'project' => $project , 'currentUser' => auth()->user()]);
     }
 
     /**
@@ -29,7 +31,18 @@ class ActivityController extends Controller
      */
     public function store(StoreactivityRequest $request)
     {
-        //
+        $activityData = [
+            'title' => $request->title,
+            'description' => $request->description,
+            'priority' => $request->priority,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'projects_id' => $request->id, 
+        ];
+
+        Activity::create($activityData);        
+        
+        return redirect()->action([ProjectController::class, 'index']);
     }
 
     /**

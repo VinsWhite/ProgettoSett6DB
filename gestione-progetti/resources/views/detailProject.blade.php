@@ -16,7 +16,11 @@
   </div>
 </div>
 
-@if(!is_null($activity) && $activities->isNotEmpty())
+<div>
+    <a href="{{$project->id}}/create-activity" class="btn btn-success mt-4">Add activity</a>
+</div>
+
+@if(!is_null($activity) && $activity->isNotEmpty())
     <h2>Activities</h2>
     @foreach($activity as $activity)
     <div class="card mt-4">

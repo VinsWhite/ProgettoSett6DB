@@ -31,7 +31,6 @@
       <td>{{ $proj->description }}</td>
       <td>{{ $proj->scope }}</td>
       <td>{{ $proj->deadline }}</td>
-      <td>{{ $proj->name }}</td>
       <td><a href="project/{{$proj->id}}"><i class="text-success bi bi-info-square"></i></a></td>
       <td><a href="project/{{$proj->id}}/destroy"><i class="text-danger-emphasis bi bi-trash"></i></a></td>
     </tr>
@@ -39,7 +38,7 @@
   </tbody>
 </table>
 @else
-<p>Nessun libro trovato.</p>
+<p>Nessun progetto trovato.</p>
 @endif
 
 @endsection

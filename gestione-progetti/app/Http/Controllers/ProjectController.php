@@ -6,6 +6,7 @@ use App\Models\project;
 use App\Http\Requests\StoreprojectRequest;
 use App\Http\Requests\UpdateprojectRequest;
 use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ProjectController extends Controller
@@ -15,8 +16,11 @@ class ProjectController extends Controller
      */
     public function index()
     {
+    
+        $userId = Auth::id();
         $projects = DB::table('projects')
-                    ->join('users', 'projects.users_id', '=', 'users.id');
+                    ->where('users_id', '=', $userId);/* 
+                    ->join('users', 'projects.users_id', '=', 'users.id'); */
         return view ("viewProject", ['projects' => $projects->get()]);
     }
 
@@ -52,10 +56,17 @@ class ProjectController extends Controller
      */
     public function show(project $project)
     {
+        // Ottieni l'ID dell'utente autenticato
+        $userId = Auth::id();
+
+        // controlla se l'utente autenticato è il proprietario del progetto
+        if ($project->users_id != $userId) {
+            return redirect()->route('dashboard')->with('error', 'Non hai accesso a questo progetto');
+        }
+
         $user = $project->user;
         $activity = $project->activity;
-        /* dd($activity); */
-    
+
         return view('detailProject', ['project' => $project, 'user' => $user, 'activity' => $activity]);
     }
 
