@@ -21,7 +21,7 @@ class project extends Model
         return $this->belongsTo(User::class, 'users_id');
     }
 
-    public function activites() 
+    public function activities() 
     {
         return $this->hasMany(Activity::class);
     }

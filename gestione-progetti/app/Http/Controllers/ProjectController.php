@@ -66,6 +66,7 @@ class ProjectController extends Controller
 
         $user = $project->user;
         $activity = $project->activity;
+        
 
         return view('detailProject', ['project' => $project, 'user' => $user, 'activity' => $activity]);
     }

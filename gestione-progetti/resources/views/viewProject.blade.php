@@ -20,7 +20,6 @@
       <th scope="col">Description</th>
       <th scope="col">Scope</th>
       <th scope="col">Deadline</th>
-      <th scope="col">User</th>
     </tr>
   </thead>
   <tbody>

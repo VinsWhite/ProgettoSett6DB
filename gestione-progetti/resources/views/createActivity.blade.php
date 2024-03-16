@@ -4,7 +4,7 @@
 @section('content')
 
 @section('addBook')
-<a href="/manage/activity/{{$project->id}}"><i class="bi bi-arrow-left"></i></a>
+<a href="/manage/project/{{ $project->id }}"><i class="bi bi-arrow-left"></i></a>
 
 <form method="post" action="/manage/activity">
     @csrf
