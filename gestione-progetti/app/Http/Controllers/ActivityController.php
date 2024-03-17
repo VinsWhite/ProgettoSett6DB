@@ -74,6 +74,6 @@ class ActivityController extends Controller
      */
     public function destroy(activity $activity)
     {
-        //
+        
     }
 }

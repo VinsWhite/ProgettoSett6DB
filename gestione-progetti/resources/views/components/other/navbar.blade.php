@@ -10,11 +10,20 @@
           <a class="nav-link active text-light" aria-current="page" href="/manage/project">Home</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <!-- non funzionante per ora -->
-        <input class="form-control me-2" type="search" placeholder="Search project..." aria-label="Search">
-        <button class="btn btn-outline-light" type="submit">Search</button>
-      </form>
+      <div class="dropdown me-4">
+        <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Bentornato!
+        </button>
+        <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/profile">Profile</a></li>
+          <li>
+            <form action="/logout" method="POST">
+              @csrf
+              <button type="submit" class='border-0 bg-white dropdown-item'>Logout</button>
+            </form>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>
