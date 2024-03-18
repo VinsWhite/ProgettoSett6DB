@@ -61,7 +61,7 @@ class ProjectController extends Controller
 
         // controlla se l'utente autenticato è il proprietario del progetto
         if ($project->users_id != $userId) {
-            return redirect()->route('dashboard')->with('error', 'Non hai accesso a questo progetto');
+            return redirect()->route('project.index')->with('error', 'Non hai accesso a questo progetto');
         }
 
         $user = $project->user;
