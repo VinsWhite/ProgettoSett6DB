@@ -76,7 +76,7 @@ class ProjectController extends Controller
      */
     public function edit(project $project)
     {
-        //
+        return view('editProject', ['project' => $project,'users' => User::get(), 'currentUser' => auth()->user()]);
     }
 
     /**
@@ -84,7 +84,17 @@ class ProjectController extends Controller
      */
     public function update(UpdateprojectRequest $request, project $project)
     {
-        //
+
+        $updateData = [
+            'title' => $request->title,
+            'description' => $request->description,
+            'scope' => $request->scope,
+            'deadline' => $request->deadline,
+            'users_id' => auth()->id(), 
+        ];
+        
+        $project->update($updateData);     
+        return redirect('/manage/project')->with('success', 'Item updated successfully');
     }
 
     /**

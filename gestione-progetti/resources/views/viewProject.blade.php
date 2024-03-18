@@ -30,11 +30,12 @@
       <td>{{ $proj->scope }}</td>
       <td>{{ $proj->deadline }}</td>
       <td><a href="project/{{$proj->id}}"><i class="text-success bi bi-info-square"></i></a></td>
+      <td><a href="project/{{$proj->id}}/edit"><i class="text-primary-emphasis bi bi-pencil"></i></a></td>
       <td>
         <form action="{{ route('project.destroy', $proj->id) }}" method="POST" onsubmit="return confirm('Do you want to delete this project?')">
             @csrf
             @method('DELETE')
-            <button type="submit" class="border-0 bg-white"><i class="text-danger-emphasis bi bi-trash"></i></button>
+            <button type="submit" class="border-0 bg-white"><i class="text-danger bi bi-trash"></i></button>
         </form>
       </td>
     </tr>
