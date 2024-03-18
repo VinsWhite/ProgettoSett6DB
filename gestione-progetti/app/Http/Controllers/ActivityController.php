@@ -15,7 +15,7 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        //
+        return view('viewProject');
     }
 
     /**
@@ -37,7 +37,7 @@ class ActivityController extends Controller
             'priority' => $request->priority,
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
-            'projects_id' => $request->id, 
+            'projects_id' => $request->project_id, 
         ];
 
         Activity::create($activityData);        

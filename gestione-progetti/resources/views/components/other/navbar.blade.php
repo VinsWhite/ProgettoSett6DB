@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-success">
+<nav class="navbar navbar-expand-lg bg-success px-5">
   <div class="container-fluid">
     <a class="navbar-brand fw-bold text-light" href="/manage/project">MANAGE PROJECTS</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +12,7 @@
       </ul>
       <div class="dropdown me-4">
         <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Bentornato!
+          {{ auth()->user()->name }}
         </button>
         <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="/profile">Profile</a></li>
