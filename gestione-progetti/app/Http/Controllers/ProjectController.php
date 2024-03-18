@@ -19,8 +19,7 @@ class ProjectController extends Controller
     
         $userId = Auth::id();
         $projects = DB::table('projects')
-                    ->where('users_id', '=', $userId);/* 
-                    ->join('users', 'projects.users_id', '=', 'users.id'); */
+                    ->where('users_id', '=', $userId);
         return view ("viewProject", ['projects' => $projects->get()]);
     }
 
@@ -66,7 +65,6 @@ class ProjectController extends Controller
 
         $user = $project->user;
         $activity = $project->activity;
-        
 
         return view('detailProject', ['project' => $project, 'user' => $user, 'activity' => $activity]);
     }

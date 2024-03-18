@@ -34,7 +34,7 @@
         <label for="exampleEndDate" class="form-label">End Date <span class="text-danger">*</span></label>
         <input type="date" name="end_date" class="form-control" id="exampleEndDate" aria-describedby="end_date">
     </div>
-    <input type="hidden" name="project_id" value="{{ $project->id }}">
+    <input type="hidden" name="projects_id" value="{{ $project->id }}">
     <button type="submit" class="btn btn-success">Create</button>
 </form>
 

@@ -37,10 +37,10 @@ class ActivityController extends Controller
             'priority' => $request->priority,
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
-            'projects_id' => $request->project_id, 
+            'projects_id' => $request->projects_id, 
         ];
 
-        Activity::create($activityData);        
+        Activity::create($activityData);    
         
         return redirect()->action([ProjectController::class, 'index']);
     }

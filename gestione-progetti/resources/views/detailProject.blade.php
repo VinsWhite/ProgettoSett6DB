@@ -21,14 +21,14 @@
 
 @if($activity)
     <h2>Activities</h2>
-    @foreach($activity as $activity)
+    @foreach($activity as $ac)
     <div class="card mt-4">
         <div class="card-body">
-            <h5 class="card-title fw-semibold">{{$activity->title}}</h5>
-            <p class="card-text"><span class="text-success">Description: </span>{{$activity->description}}</p>
-            <p class="card-text"><span class="text-success">Priority: </span>{{$activity->priority}}</p>
-            <p class="card-text"><span class="text-success">Start: </span>{{$activity->start_date}}</p>
-            <p class="card-text"><span class="text-success">End: </span>{{$activity->end_date}}</p>
+            <h5 class="card-title fw-semibold">{{$ac->title}}</h5>
+            <p class="card-text"><span class="text-success">Description: </span>{{$ac->description}}</p>
+            <p class="card-text"><span class="text-success">Priority: </span>{{$ac->priority}}</p>
+            <p class="card-text"><span class="text-success">Start: </span>{{$ac->start_date}}</p>
+            <p class="card-text"><span class="text-success">End: </span>{{$ac->end_date}}</p>
         </div>
     </div>
     @endforeach
